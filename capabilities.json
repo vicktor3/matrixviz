@@ -1,0 +1,107 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Node Id",
+            "name": "id",
+            "kind": "Grouping",
+            "description": "Assign what you would like to see"
+          },
+          {
+            "displayName": "Parent Node Id",
+            "name": "parent_id",
+            "kind": "Grouping",
+            "description": "Assign what you would like to see"
+          },
+          {
+            "displayName": "Category",
+            "name": "cats",
+            "kind": "Grouping",
+            "description": "Assign one or more categories. "
+          },
+          {
+            "displayName": "Name(Optional)",
+            "name": "name",
+            "kind": "Measure",
+            "description": "Assign what you would like to see"
+          }
+    ],
+    "objects": {
+        "dataPoint": {
+            "displayName": "Data colors",
+            "properties": {
+                "defaultColor": {
+                    "displayName": "Default color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "showAllDataPoints": {
+                    "displayName": "Show all",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "fill": {
+                    "displayName": "Fill",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "fillRule": {
+                    "displayName": "Color saturation",
+                    "type": {
+                        "fill": {}
+                    }
+                },
+                 "fontSize": {
+                    "displayName": "Text Size",
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [
+        {
+            "matrix": {
+                "rows": {
+                  "select": [
+                    {
+                      "for": {
+                        "in": "cats"
+                      }
+                    }
+                  ]
+                },
+                "values": {
+                  "select": [
+                    {
+                      "for": {
+                        "in": "name"
+                      }
+                    }
+                ]}
+            }
+        }
+    ],
+    "expandCollapse": {
+        "roles": ["cats"],
+        "addDataViewFlags": {
+            "defaultValue": true
+        }
+    },
+    "drilldown": {
+        "roles": ["cats"]
+    }
+}
