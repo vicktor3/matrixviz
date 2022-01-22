@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "author": {"name":"matrixviz","email":"vicktorm@lumel.com"},
+    "resources": [
+        {
+            "resourceId": "rId0",
+            "sourceType": 5,
+            "file": "resources/matrixviz6FE6D95E2F0945E1B6B8CEF23A21AC44.pbiviz.json"
+        }
+    ],
+    "visual": {"name":"matrixviz","displayName":"matrixviz","guid":"matrixviz6FE6D95E2F0945E1B6B8CEF23A21AC44","visualClassName":"Visual","version":"1.0.0","description":"matrixviz","supportUrl":"https://lumel.com/","gitHubUrl":""},
+    "metadata": {
+        "pbivizjson": {
+            "resourceId": "rId0"
+        }
+    }  
+}

@@ -5,14 +5,14 @@
         "guid": "matrixviz6FE6D95E2F0945E1B6B8CEF23A21AC44",
         "visualClassName": "Visual",
         "version": "1.0.0",
-        "description": "",
-        "supportUrl": "",
+        "description": "matrixviz",
+        "supportUrl": "https://lumel.com/",
         "gitHubUrl": ""
     },
     "apiVersion": "4.1.0",
     "author": {
-        "name": "",
-        "email": ""
+        "name": "matrixviz",
+        "email": "vicktorm@lumel.com"
     },
     "assets": {
         "icon": "assets/icon.png"
