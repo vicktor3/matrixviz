@@ -97,24 +97,24 @@ export class Visual implements IVisual {
     }
 
     private buildNode (node: powerbi.DataViewMatrixNode, parents: powerbi.DataViewMatrixNode[]) {
-        this.counter[node.level] += 1;
-        let nodeSelectionBuilder: ISelectionIdBuilder = this.host.createSelectionIdBuilder();
-        parents.push(node);
-        for (let i = 0; i < parents.length; i++) {
-            nodeSelectionBuilder = nodeSelectionBuilder.withMatrixNode(parents[i], this.rowLevels);
+        if (!node.isSubtotal) {
+            this.counter[node.level] += 1;
+            let nodeSelectionBuilder: ISelectionIdBuilder = this.host.createSelectionIdBuilder();
+            parents.push(node);
+            for (let i = 0; i < parents.length; i++) {
+                nodeSelectionBuilder = nodeSelectionBuilder.withMatrixNode(parents[i], this.rowLevels);
+            }
+            const nodeSelectionId = nodeSelectionBuilder.createSelectionId();
+            const x = document.createElement("BUTTON");
+            const t = document.createTextNode(<string>node.value);
+            x.appendChild(t);
+            x.addEventListener("click", () => {
+                this.selectionManager.toggleExpandCollapse(nodeSelectionId);
+                console.log(nodeSelectionId,'clicked', node.value);
+            });
+            this.target.appendChild(x);
+            if (node.children) node.children.forEach(child => this.buildNode(child, [node]));
         }
-        const nodeSelectionId = nodeSelectionBuilder.createSelectionId();
-        const x = document.createElement("BUTTON");
-        const t = document.createTextNode(<string>node.value);
-        x.appendChild(t);
-        x.addEventListener("click", () => {
-            this.selectionManager.toggleExpandCollapse(nodeSelectionId);
-            console.log(nodeSelectionId,'clicked', node.value);
-        });
-        this.target.appendChild(x);
-        if (node.children) node.children.forEach(child => this.buildNode(child, [node]));
-        // console.log(nodeSelectionBuilder);
-
     }
 
     private static parseSettings(dataView: DataView): VisualSettings {

@@ -25,6 +25,15 @@
             "description": "Assign what you would like to see"
           }
     ],
+    "expandCollapse": {
+        "roles": ["cats"],
+        "addDataViewFlags": {
+            "defaultValue": true
+        }
+    },
+    "drilldown": {
+        "roles": ["cats"]
+    },
     "objects": {
         "dataPoint": {
             "displayName": "Data colors",
@@ -76,13 +85,9 @@
         {
             "matrix": {
                 "rows": {
-                  "select": [
-                    {
-                      "for": {
-                        "in": "cats"
-                      }
+                    "for": {
+                    "in": "cats"
                     }
-                  ]
                 },
                 "values": {
                   "select": [
@@ -94,14 +99,5 @@
                 ]}
             }
         }
-    ],
-    "expandCollapse": {
-        "roles": ["cats"],
-        "addDataViewFlags": {
-            "defaultValue": true
-        }
-    },
-    "drilldown": {
-        "roles": ["cats"]
-    }
+    ]
 }
